@@ -15,6 +15,9 @@ int main(int argc, char* argv[]) {
     state = malloc(sizeof(struct Editor_State));
     state->filename = argv[1];
 
+    printf("\033]0;%s\007", state->filename);
+    fflush(stdout);
+
     load_file(argv[1], state);
     init_editor(state);
 
